@@ -57,11 +57,31 @@ class ChecklistViewController: UITableViewController {
         
         super.init(coder: aDecoder)
     }
+    
+//MARK: Outlest and Actions
+    
+    @IBAction func addItem() {
+        let newRowIndex = items.count
+        
+        let newItem = ChecklistItem()
+        newItem.text = "Believe in yourself"
+        newItem.checked = true
+        items.append(newItem)
+        
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
+    }
+    
+    
+//MARK: View Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+//MARK: Table View Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
@@ -89,6 +109,14 @@ class ChecklistViewController: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        items.remove(at: indexPath.row)
+        let indexPaths = [indexPath]
+        tableView.deleteRows(at: indexPaths, with: .automatic)
+    }
+    
+//MARK: Random methods
     
     func configureCheckmark(for cell: UITableViewCell, with item: ChecklistItem) {
         
