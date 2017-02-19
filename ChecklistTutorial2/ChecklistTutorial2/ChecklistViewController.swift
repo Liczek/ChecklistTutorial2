@@ -11,6 +11,7 @@ import UIKit
 class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
     
     var items: [ChecklistItem]
+    var checklist: Checklist!
     
     required init? (coder aDecoder: NSCoder) {
         
@@ -21,6 +22,14 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         
         print("Documnets folder id \(documentDirectory())")
         print("Data file path is \(dataFilePath())")
+    }
+    
+//MARK: View Methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = checklist.name
+        
     }
     
 //MARK: Outlest and Actions
@@ -72,16 +81,6 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
                 controller.itemToEdit = items[indexPath.row]
             }
         }
-    }
-    
-    
-//MARK: View Methods
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        
     }
     
 //MARK: Table View Methods
