@@ -13,6 +13,17 @@ class DataModel {
     
     init() {
         loadChecklists()
+        registerDefaults()
+        handleFirstTime()
+    }
+    
+    var indexOfSelectedChecklist: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: "ChecklistIndex")
+        } set {
+            UserDefaults.standard.set(newValue, forKey: "ChecklistIndex")
+            UserDefaults.standard.synchronize()
+        }
     }
     
 //MARK: Load and Save
@@ -42,6 +53,36 @@ class DataModel {
             unarchiver.finishDecoding()
         }
     }
+    
+//MARK: USER DEFAULTS
+    
+    // Set vaues for UserDefaults
+    
+    func registerDefaults() {
+        let dictionary: [String: Any] = ["ChecklistIndex": -1, "FirstTime": true ]
+        
+        UserDefaults.standard.register(defaults: dictionary)
+    }
+    
+    // Creating new list and switch to List of items
+    
+    func handleFirstTime() {
+        let userDefaults = UserDefaults.standard
+    // reading boolian value from "FirstTime"
+        let firstTime = userDefaults.bool(forKey: "FirstTime")
+    //
+        if firstTime {
+    // creating List
+            let checklist = Checklist(listName: "List")
+            lists.append(checklist)
+    // switch to created random Checklist - IndexPath.row == 0 (first row)
+            indexOfSelectedChecklist = 0
+    // change "FirstTime" boolian to false - every next launching will not be the first one
+            userDefaults.set(false, forKey: "FirstTime")
+            userDefaults.synchronize()
+        }
+    }
+    
 
     
     
