@@ -36,5 +36,10 @@ class Checklist: NSObject, NSCoding {
         }
         return count
     }
+    
+    func sortChecklistItems() {
+        items.sort(by: {item1, item2 in
+        return item1.checked && !item2.checked})
+        }
 
 }
