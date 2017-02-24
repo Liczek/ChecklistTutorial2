@@ -27,7 +27,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        checklist.sortChecklistItems()
+        checklist.sortChecklisItemByCheckedAndAscending()
         tableView.reloadData()
     }
     
@@ -47,7 +47,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
-        checklist.sortChecklistItems()
+        checklist.sortChecklisItemByCheckedAndAscending()
         tableView.reloadData()
         dismiss(animated: true, completion: nil)
         
@@ -60,7 +60,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
                 configureText(for: cell, with: item)
             }
         }
-        checklist.sortChecklistItems()
+        checklist.sortChecklisItemByCheckedAndAscending()
         tableView.reloadData()
         dismiss(animated: true, completion: nil)
         
@@ -109,7 +109,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             
                 item.toggleChecked()
                 configureCheckmark(for: cell, with: item)
-                checklist.sortChecklistItems()
+                checklist.sortChecklisItemByCheckedAndAscending()
                 tableView.reloadData()
         }
         
