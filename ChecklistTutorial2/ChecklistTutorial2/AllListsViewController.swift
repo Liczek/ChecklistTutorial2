@@ -61,6 +61,8 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
                 label.text = "You did not add any task yet"
             }
         }
+        
+        cell.imageView!.image = UIImage(named: checklist.iconName)
 
         return cell
     }
