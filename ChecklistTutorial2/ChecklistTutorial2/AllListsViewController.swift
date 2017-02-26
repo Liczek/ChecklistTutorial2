@@ -54,7 +54,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
             let itemsCount = checklist.items.count
             
             if uncheckedCount == 0 && itemsCount != 0 {
-                label.text = "All of \(itemsCount)tasks are done !!"
+                label.text = "All of \(itemsCount) tasks are done !!"
             } else if uncheckedCount != 0 && itemsCount != 0 {
                 label.text = "\(uncheckedCount) of \(itemsCount) task remaining !!"
             } else if itemsCount == 0 {

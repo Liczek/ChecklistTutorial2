@@ -132,7 +132,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         
         if item.checked {
             label.text = "✓"
-            label.textColor = UIColor.green
+            label.textColor = UIColor.red
         } else {
             label.text = "✓"
             label.textColor = UIColor.lightGray

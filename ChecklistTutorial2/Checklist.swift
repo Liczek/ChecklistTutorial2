@@ -12,17 +12,15 @@ class Checklist: NSObject, NSCoding {
     var name = ""
     var items = [ChecklistItem]()
     var iconName: String
-    
-    init(listName: String) {
-        self.name = listName
-        self.iconName = "No Icon"
-        super.init()
+//MARK: ??? - po co jest ten convinience init?
+    convenience init(listName: String) {
+        self.init(listName: listName, iconName: "No Icon")
     }
     
-    func encode(with aCoder: NSCoder){
-        aCoder.encode(name, forKey: "Name")
-        aCoder.encode(items, forKey: "Items")
-        aCoder.encode(iconName, forKey: "iconName")
+    init(listName: String, iconName: String) {
+        self.name = listName
+        self.iconName = iconName
+        super.init()
     }
     
     required init?(coder aDecoder: NSCoder){
@@ -30,6 +28,12 @@ class Checklist: NSObject, NSCoding {
         items = aDecoder.decodeObject(forKey: "Items") as! [ChecklistItem]
         iconName = aDecoder.decodeObject(forKey: "iconName") as! String
         super.init()
+    }
+    
+    func encode(with aCoder: NSCoder){
+        aCoder.encode(name, forKey: "Name")
+        aCoder.encode(items, forKey: "Items")
+        aCoder.encode(iconName, forKey: "iconName")
     }
     
     func countUncheckedItems() -> Int {

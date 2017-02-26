@@ -47,7 +47,10 @@ class IconPickerViewController: UITableViewController {
 //MARK: TABLE VIEW METHODS
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let iconName = icons[indexPath.row]
-        delegate?.iconPicker(self, didPick: iconName)
+//MARK: ??? - po co unwrapować delegate?
+        if let delegate = delegate {
+            let iconName = icons[indexPath.row]
+            delegate.iconPicker(self, didPick: iconName)
+        }
     }
 }

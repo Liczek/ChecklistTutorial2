@@ -19,7 +19,7 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
 
 //MARK: OUTLETS
     var checklistToEdit: Checklist?
-    var iconName = "Folder"
+    var iconName = "No Icon"
     
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
@@ -45,6 +45,9 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
             iconImageView.image = UIImage(named: iconName)
         } else {
             title = "Add new checklist"
+            doneBarButton.isEnabled = false
+            iconNameLabel.text = "Tap here to chose icon"
+            iconImageView.image = UIImage(named: "No Icon")
         }
     }
     
@@ -55,7 +58,6 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
         textField.autocapitalizationType = .sentences
         textField.returnKeyType = .done
         textField.enablesReturnKeyAutomatically = true
-        doneBarButton.isEnabled = false
     }
     
 //MARK: ACTIONS
@@ -66,12 +68,12 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
     @IBAction func done() {
         if let checklist = checklistToEdit {
             checklist.name = textField.text!
+            checklist.iconName = iconName
             delegate?.listDetailViewController(self, didFinishEditing: checklist)
         } else {
-            let checklist = Checklist(listName: "\(textField.text!)")
+            let checklist = Checklist(listName: "\(textField.text!)", iconName: iconName)
             delegate?.listDetailViewController(self, didFinishAdding: checklist)
         }
-        
     }
     
 //MARK: TABLE VIEW METHODS
@@ -81,14 +83,6 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
         } else {
             return nil
         }
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let oldText = textField.text! as NSString
-        let newText = oldText.replacingCharacters(in: range, with: string) as NSString
-        
-        doneBarButton.isEnabled = newText.length > 0
-        return true
     }
     
 //MARK: SEGUE
@@ -101,21 +95,20 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
     
 //MARK: DELEGATES METHODS
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let oldText = textField.text! as NSString
+        let newText = oldText.replacingCharacters(in: range, with: string) as NSString
+        
+        doneBarButton.isEnabled = newText.length > 0
+        return true
+    }
+    
     func iconPicker(_ picker: IconPickerViewController, didPick iconName: String) {
         self.iconName = iconName
         iconNameLabel.text = "Curent icon: \(iconName)"
         iconImageView.image = UIImage(named: iconName)
         let _ = navigationController?.popViewController(animated: true)
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
