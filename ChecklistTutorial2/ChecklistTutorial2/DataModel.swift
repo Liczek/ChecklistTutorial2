@@ -61,7 +61,7 @@ class DataModel {
     // Set vaues for UserDefaults
     
     func registerDefaults() {
-        let dictionary: [String: Any] = ["ChecklistIndex": -1, "FirstTime": true ]
+        let dictionary: [String: Any] = ["ChecklistIndex": -1, "FirstTime": true, "ChecklistItemID": 0 ]
         
         UserDefaults.standard.register(defaults: dictionary)
     }
@@ -85,6 +85,16 @@ class DataModel {
         }
     }
     
+//MARK: ID CREATOR FOR USER NOTIFICATION
+    
+    class func nextChecklistItemID() -> Int {
+        let userDefaults = UserDefaults.standard
+        let itemID = userDefaults.integer(forKey: "ChecklistItemID")
+        userDefaults.set(itemID + 1, forKey: "ChecklistItemID")
+        userDefaults.synchronize()
+        return itemID
+    }
+    
 //MARK: SORT CHECKLISTS
     
     func sortChecklists() {
@@ -92,7 +102,7 @@ class DataModel {
         return checklist1.name.localizedStandardCompare(checklist2.name) == .orderedAscending})
     }
     
-    
+
     
     
 }
