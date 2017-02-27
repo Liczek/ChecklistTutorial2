@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import UserNotifications
 
 protocol ItemDetailViewControllerDelegate: class {
     func itemDetailViewControllerDidCancel (_ controller: ItemDetailViewController)
@@ -46,6 +47,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         textField.autocapitalizationType = .sentences
         textField.returnKeyType = .done
         textField.enablesReturnKeyAutomatically = true
+        shouldRemindSwitch.tintColor = view.tintColor
     }
     
     override func viewDidLoad() {
@@ -132,6 +134,18 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         updateDueDateLabel()
     }
     
+    @IBAction func shouldRemindToggled(_ switchControl: UISwitch) {
+        textField.resignFirstResponder()
+        
+        if switchControl.isOn {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound]) {
+                granted, error in 
+            }
+        }
+    }
+    
+    
     
 //MARK: Random Methods
     
@@ -145,6 +159,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             
             item.shouldRemind = shouldRemindSwitch.isOn
             item.dueDate = dueDate
+            item.scheduleNotification()
             
             delegate?.itemDetailViewController(self, didFinishEditing: item)
         } else {
@@ -154,9 +169,11 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             
             item.shouldRemind = shouldRemindSwitch.isOn
             item.dueDate = dueDate
+            item.scheduleNotification()
             
             delegate?.itemDetailViewController(self, didFinishAdding: item)
         }
+        
     }
     
     func updateDueDateLabel() {

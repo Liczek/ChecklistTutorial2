@@ -23,6 +23,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         title = checklist.name
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,6 +33,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     }
     
 //MARK: Outlest and Actions
+    
+
     
         
 //MARK: Delegate Methods
@@ -144,6 +147,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         //label.text = item.text
         label.text = "\(item.itemID) : \(item.text)"
     }
+    
+
     
 //MARK: Save and Load
     
