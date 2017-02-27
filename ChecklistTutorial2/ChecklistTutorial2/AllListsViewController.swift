@@ -50,15 +50,15 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     // if your not sure that setailTextLabel is not nil
         if let label = cell.detailTextLabel {
             
-            let uncheckedCount = checklist.countUncheckedItems()
+            let notStrikeThroughtCount = checklist.countNotStrikeThroughtItems()
             let itemsCount = checklist.items.count
             
-            if uncheckedCount == 0 && itemsCount != 0 {
+            if notStrikeThroughtCount == 0 && itemsCount != 0 {
                 label.text = "All of \(itemsCount) tasks are done !!"
-            } else if uncheckedCount != 0 && itemsCount != 0 {
-                label.text = "\(uncheckedCount) of \(itemsCount) task remaining !!"
+            } else if notStrikeThroughtCount != 0 && itemsCount != 0 {
+                label.text = "\(notStrikeThroughtCount) of \(itemsCount) task remaining !!"
             } else if itemsCount == 0 {
-                label.text = "You did not add any task yet"
+                label.text = "You didn't add any task yet"
             }
         }
         

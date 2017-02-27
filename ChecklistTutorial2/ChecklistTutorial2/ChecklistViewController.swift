@@ -99,7 +99,6 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         
         let item = checklist.items[indexPath.row]
         
-        configureCheckmark(for: cell, with: item)
         configureText(for: cell, with: item)
         
         return cell
@@ -111,7 +110,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
                 let item = checklist.items[indexPath.row]
             
                 item.toggleChecked()
-                configureCheckmark(for: cell, with: item)
+                configureText(for: cell, with: item)
                 checklist.sortChecklisItemByCheckedAndAscending()
                 tableView.reloadData()
         }
@@ -129,26 +128,20 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
 //MARK: Random methods
     
-    func configureCheckmark(for cell: UITableViewCell, with item: ChecklistItem) {
-        
-        let label = cell.viewWithTag(1001) as! UILabel
-        
-        if item.checked {
-            label.text = "✓"
-            label.textColor = UIColor.red
-        } else {
-            label.text = "✓"
-            label.textColor = UIColor.lightGray
-        }
-    }
-    
     func configureText(for cell: UITableViewCell, with item: ChecklistItem) {
         let label = cell.viewWithTag(1000) as! UILabel
-        //label.text = item.text
-        label.text = "\(item.itemID) : \(item.text)"
+        
+        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: item.text)
+        attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 1, range: NSMakeRange(0, attributeString.length))
+        
+        if item.checked {
+            label.attributedText = attributeString
+            label.textColor = UIColor.lightGray
+        } else {
+            label.text = item.text
+            label.textColor = UIColor.black
+        }
     }
-    
-
     
 //MARK: Save and Load
     

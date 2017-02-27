@@ -36,7 +36,7 @@ class Checklist: NSObject, NSCoding {
         aCoder.encode(iconName, forKey: "iconName")
     }
     
-    func countUncheckedItems() -> Int {
+    func countNotStrikeThroughtItems() -> Int {
         var count = 0
         
         for item in items where !item.checked{
@@ -74,7 +74,7 @@ class Checklist: NSObject, NSCoding {
         unchecked.sort(by: {(checklistItem1, checklistItem2) in
             return checklistItem1.text.localizedStandardCompare(checklistItem2.text) == .orderedAscending})
         
-        self.items = checked + unchecked
+        self.items = unchecked + checked
         
         
     }
