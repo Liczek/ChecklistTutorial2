@@ -11,6 +11,7 @@ import UIKit
 class Checklist: NSObject, NSCoding {
     var name = ""
     var items = [ChecklistItem]()
+    var doneItems = [ChecklistItem]()
     var iconName: String
 //MARK: ??? - po co jest ten convinience init?
     convenience init(listName: String) {
@@ -26,6 +27,7 @@ class Checklist: NSObject, NSCoding {
     required init?(coder aDecoder: NSCoder){
         name = aDecoder.decodeObject(forKey: "Name") as! String
         items = aDecoder.decodeObject(forKey: "Items") as! [ChecklistItem]
+        doneItems = aDecoder.decodeObject(forKey: "DoneItems") as! [ChecklistItem]
         iconName = aDecoder.decodeObject(forKey: "iconName") as! String
         super.init()
     }
@@ -33,51 +35,61 @@ class Checklist: NSObject, NSCoding {
     func encode(with aCoder: NSCoder){
         aCoder.encode(name, forKey: "Name")
         aCoder.encode(items, forKey: "Items")
+        aCoder.encode(doneItems, forKey: "DoneItems")
         aCoder.encode(iconName, forKey: "iconName")
     }
     
-    func countUncheckedItems() -> Int {
-        var count = 0
-        
-        for item in items where !item.checked{
-            count += 1
-        }
-        return count
-    }
-    
+//    func countUncheckedItems() -> Int {
+//        var count = 0
+//        
+//        for item in items where !item.checked{
+//            count += 1
+//        }
+//        return count
+//    }
+//    
 //    func sortChecklistItems() {
 //        items.sort(by: {item1, item2 in
 //        return item1.checked && !item2.checked})
 //        }
+//    
+    func sortChecklistItems() {
+        items.sort(by: {(item1, item2) in
+            return item1.text.localizedStandardCompare(item2.text) == .orderedAscending})
+        doneItems.sort(by: {(item1, item2) in
+            return item1.text.localizedStandardCompare(item2.text) == .orderedAscending})
+    }
     
-    func sortChecklisItemByCheckedAndAscending() {
-        var checked = [ChecklistItem]()
-        var unchecked = [ChecklistItem]()
-        
+    
+    
+//    func sortChecklisItemByCheckedAndAscending() {
+//        var checked = [ChecklistItem]()
+//        var unchecked = [ChecklistItem]()
+//        
 //        for item in items where item.checked {
 //            checked.append(item)
 //        }
 //        for item in items where !item.checked {
 //            unchecked.append(item)
 //        }
-        
-        for item in items {
-        if item.checked {
-            checked.append(item)
-        } else {
-            unchecked.append(item)
-            }
-        }
-        
-        checked.sort(by: {(checklistItem1, checklistItem2) in
-            return checklistItem1.text.localizedStandardCompare(checklistItem2.text) == .orderedAscending})
-        unchecked.sort(by: {(checklistItem1, checklistItem2) in
-            return checklistItem1.text.localizedStandardCompare(checklistItem2.text) == .orderedAscending})
-        
-        self.items = checked + unchecked
-        
-        
-    }
+//        
+//        for item in items {
+//        if item.checked {
+//            checked.append(item)
+//        } else {
+//            unchecked.append(item)
+//            }
+//        }
+//        
+//        checked.sort(by: {(checklistItem1, checklistItem2) in
+//            return checklistItem1.text.localizedStandardCompare(checklistItem2.text) == .orderedAscending})
+//        unchecked.sort(by: {(checklistItem1, checklistItem2) in
+//            return checklistItem1.text.localizedStandardCompare(checklistItem2.text) == .orderedAscending})
+//        
+//        self.items = checked + unchecked
+//        
+//        
+//    }
     
 
 }

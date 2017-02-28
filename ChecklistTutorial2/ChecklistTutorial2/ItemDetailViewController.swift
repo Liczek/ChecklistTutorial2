@@ -156,6 +156,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func done() {
         if let item = itemToEdit {
             item.text = textField.text!
+            item.checked = false
             
             item.shouldRemind = shouldRemindSwitch.isOn
             item.dueDate = dueDate
@@ -165,7 +166,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         } else {
             let item = ChecklistItem()
             item.text = textField.text!
-            item.checked = true
+            item.checked = false
             
             item.shouldRemind = shouldRemindSwitch.isOn
             item.dueDate = dueDate
