@@ -42,16 +42,20 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         textField.becomeFirstResponder()
-        textField.placeholder = "Enter name of new Item"
+        textField.placeholder = "Enter name of Item"
         textField.adjustsFontSizeToFitWidth = false
         textField.autocapitalizationType = .sentences
         textField.returnKeyType = .done
         textField.enablesReturnKeyAutomatically = true
+        textField.clearButtonMode = .always
+        textField.spellCheckingType = .no
+        textField.borderStyle = .roundedRect
         shouldRemindSwitch.tintColor = view.tintColor
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.backgroundColor = UIColor(red: 202/255, green: 211/255, blue: 226/255, alpha: 1)
         
         if let item = itemToEdit {
             title = "Edit Item"

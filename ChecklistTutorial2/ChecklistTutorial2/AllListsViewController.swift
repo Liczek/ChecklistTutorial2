@@ -15,11 +15,16 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.tableView.backgroundColor = UIColor(red: 194/255, green: 246/255, blue: 157/255, alpha: 1)
+        //self.tableView.backgroundColor = UIColor(red: 170/255, green: 206/255, blue: 226/255, alpha: 1)
+        self.tableView.backgroundColor = UIColor(red: 202/255, green: 211/255, blue: 226/255, alpha: 1)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        
         
     }
     
@@ -46,8 +51,16 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         let cell = makeCell(for: tableView)
         let checklist = dataModel.lists[indexPath.row]
         cell.textLabel!.text = checklist.name
+        cell.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.25)
+        cell.textLabel?.textColor = UIColor(red: 0/255, green: 0/255, blue: 70/255, alpha: 1)
+        cell.detailTextLabel?.textColor = UIColor(red: 128/255, green: 170/255, blue: 220/255, alpha: 1)
+        //selection bgcolor
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor(red: 190/255, green: 215/255, blue: 255/255, alpha: 1)
+        cell.selectedBackgroundView = bgColorView
+
         cell.accessoryType = .detailDisclosureButton
-    // if your not sure that setailTextLabel is not nil
+            // if your not sure that setailTextLabel is not nil
         if let label = cell.detailTextLabel {
             
 //            let uncheckedCount = checklist.countUncheckedItems()

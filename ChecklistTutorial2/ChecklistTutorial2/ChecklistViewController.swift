@@ -19,6 +19,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.backgroundColor = UIColor(red: 202/255, green: 211/255, blue: 226/255, alpha: 1)
+        //self.tableView.sectionHeaderHeight = 10
         title = checklist.name
     }
     
@@ -115,6 +117,19 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         return allItems.count
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let myLabel = UILabel()
+        myLabel.frame = CGRect(x: 16, y: 8, width: 237, height: 12)
+        myLabel.font = UIFont.italicSystemFont(ofSize: 10)
+        myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        myLabel.textAlignment = .center
+        
+        let headerView = UIView()
+        headerView.addSubview(myLabel)
+        
+        return headerView
+    }
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         var sectionName: String?
         
@@ -150,6 +165,14 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         let item = allItems[indexPath.section][indexPath.row]
         
         configureText(for: cell, with: item)
+        
+        cell.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.25)
+        cell.textLabel?.textColor = UIColor(red: 0/255, green: 40/255, blue: 70/255, alpha: 1)
+        cell.detailTextLabel?.textColor = UIColor(red: 128/255, green: 170/255, blue: 220/255, alpha: 1)
+        //selection bgcolor
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor(red: 190/255, green: 215/255, blue: 255/255, alpha: 1)
+        cell.selectedBackgroundView = bgColorView
         
         return cell
     }
@@ -200,10 +223,10 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         
         if item.checked {
             label.attributedText = attributeString
-            label.textColor = UIColor.lightGray
+            label.textColor = UIColor(red: 128/255, green: 170/255, blue: 220/255, alpha: 1)
         } else {
             label.text = item.text
-            label.textColor = UIColor.black
+            label.textColor = UIColor(red: 0/255, green: 0/255, blue: 70/255, alpha: 1)
         }
     }
     

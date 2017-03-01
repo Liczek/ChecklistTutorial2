@@ -35,6 +35,7 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.backgroundColor = UIColor(red: 202/255, green: 211/255, blue: 226/255, alpha: 1)
         
         if let checklist = checklistToEdit {
             title = "Edit checklist name"
@@ -58,6 +59,8 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
         textField.autocapitalizationType = .sentences
         textField.returnKeyType = .done
         textField.enablesReturnKeyAutomatically = true
+        textField.clearButtonMode = .always
+        textField.spellCheckingType = .no
     }
     
 //MARK: ACTIONS
