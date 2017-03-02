@@ -50,7 +50,17 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         textField.clearButtonMode = .always
         textField.spellCheckingType = .no
         textField.borderStyle = .roundedRect
+        textField.autocorrectionType = .no
+        textField.layer.masksToBounds = true
+        textField.layer.cornerRadius = 8.0
+        textField.layer.borderColor = UIColor(red: 0, green: 0, blue: 70/255, alpha: 1).cgColor
+        textField.layer.borderWidth = 1.0
+        textField.textColor = UIColor(red: 0, green: 0, blue: 70/255, alpha: 1)
+        
         shouldRemindSwitch.tintColor = view.tintColor
+        shouldRemindSwitch.onTintColor = view.tintColor
+        shouldRemindSwitch.thumbTintColor = UIColor(red: 128/255, green: 170/255, blue: 220/255, alpha: 1)
+        
     }
     
     override func viewDidLoad() {
@@ -142,6 +152,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         
         if switchControl.isOn {
+            
             let center = UNUserNotificationCenter.current()
             center.requestAuthorization(options: [.alert, .sound]) {
                 granted, error in 

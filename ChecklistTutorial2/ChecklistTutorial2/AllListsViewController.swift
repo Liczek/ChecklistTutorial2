@@ -60,7 +60,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         cell.selectedBackgroundView = bgColorView
 
         cell.accessoryType = .detailDisclosureButton
-            // if your not sure that setailTextLabel is not nil
+            // if your not sure that detailTextLabel is not nil
         if let label = cell.detailTextLabel {
             
 //            let uncheckedCount = checklist.countUncheckedItems()
@@ -68,9 +68,11 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
             let doneItemsCount = checklist.doneItems.count
             
             if doneItemsCount != 0 && itemsCount == 0 {
-                label.text = "All of \(doneItemsCount) tasks are done !!"
+                label.text = "All of \(doneItemsCount + itemsCount) tasks are done !!"
+            } else if doneItemsCount == 0 && itemsCount != 0 {
+                label.text = "All \(doneItemsCount + itemsCount) tasks remaining !!"
             } else if doneItemsCount != 0 && itemsCount != 0 {
-                label.text = "\(itemsCount) of \(doneItemsCount) task remaining !!"
+                label.text = "\(itemsCount) of \(doneItemsCount + itemsCount) tasks remaining !!"
             } else if itemsCount == 0 && doneItemsCount == 0 {
                 label.text = "You did not add any task yet"
             }

@@ -92,7 +92,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="253" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhj-fN-csN">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhj-fN-csN">
                                             <rect key="frame" x="16" y="11.5" width="237" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -147,7 +147,8 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ewv-cS-YyV">
                                                     <rect key="frame" x="8" y="7" width="304" height="29"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -163,6 +164,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="Ewv-cS-YyV" secondAttribute="trailing" constant="8" id="rih-Rc-Ert"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -178,7 +180,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IconName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8NV-pW-wDC">
                                                     <rect key="frame" x="8" y="8" width="231" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QGJ-dX-Yhg">
@@ -198,6 +200,7 @@
                                                 <constraint firstItem="8NV-pW-wDC" firstAttribute="leading" secondItem="thN-YD-EMz" secondAttribute="leading" constant="8" id="jSL-xu-AHm"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="e6C-AK-fTL" kind="show" identifier="PickIcon" id="d87-Cj-Ss9"/>
                                         </connections>
@@ -253,7 +256,8 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EaW-LK-Nkm">
                                                     <rect key="frame" x="8" y="7" width="304" height="30"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -268,6 +272,7 @@
                                                 <constraint firstItem="EaW-LK-Nkm" firstAttribute="top" secondItem="inY-Wc-CJf" secondAttribute="top" constant="7" id="yWQ-wk-YUA"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="EaW-LK-Nkm" secondAttribute="bottom" constant="7" id="BEX-ke-UVQ"/>
                                         </constraints>
@@ -292,7 +297,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37J-jl-KJs">
                                                     <rect key="frame" x="15" y="11" width="86" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -303,6 +308,7 @@
                                                 <constraint firstItem="37J-jl-KJs" firstAttribute="top" secondItem="UNC-CQ-gqy" secondAttribute="top" constant="11" id="nbY-jr-JQb"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="3xJ-u2-xcY" detailTextLabel="Be4-xC-hHY" style="IBUITableViewCellStyleValue1" id="Ufi-Gy-aV5">
                                         <rect key="frame" x="0.0" y="159" width="320" height="44"/>
@@ -315,18 +321,19 @@
                                                     <rect key="frame" x="15" y="11" width="72" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Be4-xC-hHY">
                                                     <rect key="frame" x="261" y="11" width="44" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>

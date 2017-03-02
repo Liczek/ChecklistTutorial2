@@ -122,6 +122,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         myLabel.frame = CGRect(x: 16, y: 8, width: 237, height: 12)
         myLabel.font = UIFont.italicSystemFont(ofSize: 10)
         myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        myLabel.textColor = UIColor(red: 0/255, green: 0/255, blue: 70/255, alpha: 1)
         myLabel.textAlignment = .center
         
         let headerView = UIView()
@@ -134,14 +135,26 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         var sectionName: String?
         
         if checklist.items.count == 0 && checklist.doneItems.count == 0 {
-            sectionName = nil
-        } else {
+            if section == 0 {
+                sectionName = "No tasks here, tap + button on top right corrner"
+            }
+        } else if checklist.items.count != 0 && checklist.doneItems.count == 0 {
             if section == 0 {
                sectionName = "Tasks to do:"
-            } else if section == 1 {
+            }
+        } else if checklist.items.count == 0 && checklist.doneItems.count != 0 {
+            if section == 1 {
                 sectionName = "Finished tasks:"
             }
-        }
+        } else if checklist.items.count != 0 && checklist.doneItems.count != 0 {
+            if section == 0 {
+                sectionName = "Tasks to do:"
+            }
+            if section == 1 {
+                sectionName = "Finished tasks:"
+            }
+        }        
+
         return sectionName
     }
     

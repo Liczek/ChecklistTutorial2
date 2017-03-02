@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C8454B521E523BBA0021588E"
-               BuildableName = "ChecklistTutorial2.app"
-               BlueprintName = "ChecklistTutorial2"
-               ReferencedContainer = "container:ChecklistTutorial2.xcodeproj">
+               BuildableName = "ToDoEaTer.app"
+               BlueprintName = "ToDoEaTer"
+               ReferencedContainer = "container:ToDoEaTer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8454B521E523BBA0021588E"
-            BuildableName = "ChecklistTutorial2.app"
-            BlueprintName = "ChecklistTutorial2"
-            ReferencedContainer = "container:ChecklistTutorial2.xcodeproj">
+            BuildableName = "ToDoEaTer.app"
+            BlueprintName = "ToDoEaTer"
+            ReferencedContainer = "container:ToDoEaTer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8454B521E523BBA0021588E"
-            BuildableName = "ChecklistTutorial2.app"
-            BlueprintName = "ChecklistTutorial2"
-            ReferencedContainer = "container:ChecklistTutorial2.xcodeproj">
+            BuildableName = "ToDoEaTer.app"
+            BlueprintName = "ToDoEaTer"
+            ReferencedContainer = "container:ToDoEaTer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8454B521E523BBA0021588E"
-            BuildableName = "ChecklistTutorial2.app"
-            BlueprintName = "ChecklistTutorial2"
-            ReferencedContainer = "container:ChecklistTutorial2.xcodeproj">
+            BuildableName = "ToDoEaTer.app"
+            BlueprintName = "ToDoEaTer"
+            ReferencedContainer = "container:ToDoEaTer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

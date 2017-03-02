@@ -43,11 +43,13 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
             doneBarButton.isEnabled = true
             iconName = checklist.iconName
             iconNameLabel.text = "Curent icon: \(iconName)"
+            iconNameLabel.textColor = UIColor(red: 0, green: 0, blue: 70/255, alpha: 1)
             iconImageView.image = UIImage(named: iconName)
         } else {
             title = "Add new checklist"
             doneBarButton.isEnabled = false
             iconNameLabel.text = "Tap here to chose icon"
+            iconNameLabel.textColor = UIColor(red: 0, green: 0, blue: 70/255, alpha: 1)
             iconImageView.image = UIImage(named: "No Icon")
         }
     }
@@ -61,6 +63,13 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
         textField.enablesReturnKeyAutomatically = true
         textField.clearButtonMode = .always
         textField.spellCheckingType = .no
+        textField.autocorrectionType = .no
+        textField.layer.masksToBounds = true
+        textField.layer.cornerRadius = 8.0
+        textField.layer.borderColor = UIColor(red: 0, green: 0, blue: 70/255, alpha: 1).cgColor
+        textField.layer.borderWidth = 1.0
+        textField.textColor = UIColor(red: 0, green: 0, blue: 70/255, alpha: 1)        
+        
     }
     
 //MARK: ACTIONS
