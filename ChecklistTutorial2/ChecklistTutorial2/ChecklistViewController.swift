@@ -223,7 +223,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             let indexPaths = [indexPath]
             tableView.deleteRows(at: indexPaths, with: .automatic)
         }
-        
+        tableView.reloadData()
     }
     
 //MARK: Random methods
