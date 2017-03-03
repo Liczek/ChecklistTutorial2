@@ -53,19 +53,19 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         textField.autocorrectionType = .no
         textField.layer.masksToBounds = true
         textField.layer.cornerRadius = 8.0
-        textField.layer.borderColor = UIColor(red: 0, green: 0, blue: 70/255, alpha: 1).cgColor
+        textField.layer.borderColor = AppColors.labelColorBlue.cgColor
         textField.layer.borderWidth = 1.0
-        textField.textColor = UIColor(red: 0, green: 0, blue: 70/255, alpha: 1)
+        textField.textColor = AppColors.labelColorBlue
         
         shouldRemindSwitch.tintColor = view.tintColor
         shouldRemindSwitch.onTintColor = view.tintColor
-        shouldRemindSwitch.thumbTintColor = UIColor(red: 128/255, green: 170/255, blue: 220/255, alpha: 1)
+        shouldRemindSwitch.thumbTintColor = AppColors.detailLabelColorBlue
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.backgroundColor = UIColor(red: 202/255, green: 211/255, blue: 226/255, alpha: 1)
+        self.tableView.backgroundColor = AppColors.bgColorBlue
         
         if let item = itemToEdit {
             title = "Edit Item"

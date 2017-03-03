@@ -35,7 +35,7 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.backgroundColor = UIColor(red: 202/255, green: 211/255, blue: 226/255, alpha: 1)
+        self.tableView.backgroundColor = AppColors.bgColorBlue
         
         if let checklist = checklistToEdit {
             title = "Edit checklist name"
@@ -43,13 +43,13 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
             doneBarButton.isEnabled = true
             iconName = checklist.iconName
             iconNameLabel.text = "Curent icon: \(iconName)"
-            iconNameLabel.textColor = UIColor(red: 0, green: 0, blue: 70/255, alpha: 1)
+            iconNameLabel.textColor = AppColors.labelColorBlue
             iconImageView.image = UIImage(named: iconName)
         } else {
             title = "Add new checklist"
             doneBarButton.isEnabled = false
             iconNameLabel.text = "Tap here to chose icon"
-            iconNameLabel.textColor = UIColor(red: 0, green: 0, blue: 70/255, alpha: 1)
+            iconNameLabel.textColor = AppColors.labelColorBlue
             iconImageView.image = UIImage(named: "No Icon")
         }
     }

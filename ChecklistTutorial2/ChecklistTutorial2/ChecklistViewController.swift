@@ -19,7 +19,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.backgroundColor = UIColor(red: 202/255, green: 211/255, blue: 226/255, alpha: 1)
+        self.tableView.backgroundColor = AppColors.bgColorBlue
         //self.tableView.sectionHeaderHeight = 10
         title = checklist.name
     }
@@ -122,7 +122,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         myLabel.frame = CGRect(x: 16, y: 8, width: 237, height: 12)
         myLabel.font = UIFont.italicSystemFont(ofSize: 10)
         myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
-        myLabel.textColor = UIColor(red: 0/255, green: 0/255, blue: 70/255, alpha: 1)
+        myLabel.textColor = AppColors.labelColorBlue
         myLabel.textAlignment = .center
         
         let headerView = UIView()
@@ -179,12 +179,12 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         
         configureText(for: cell, with: item)
         
-        cell.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.25)
-        cell.textLabel?.textColor = UIColor(red: 0/255, green: 40/255, blue: 70/255, alpha: 1)
-        cell.detailTextLabel?.textColor = UIColor(red: 128/255, green: 170/255, blue: 220/255, alpha: 1)
+        cell.backgroundColor = AppColors.bgColorBlue
+        cell.textLabel?.textColor = AppColors.labelColorBlue
+        cell.detailTextLabel?.textColor = AppColors.detailLabelColorBlue
         //selection bgcolor
         let bgColorView = UIView()
-        bgColorView.backgroundColor = UIColor(red: 190/255, green: 215/255, blue: 255/255, alpha: 1)
+        bgColorView.backgroundColor = AppColors.selectedRowColorBlue
         cell.selectedBackgroundView = bgColorView
         
         return cell
@@ -236,10 +236,10 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         
         if item.checked {
             label.attributedText = attributeString
-            label.textColor = UIColor(red: 128/255, green: 170/255, blue: 220/255, alpha: 1)
+            label.textColor = AppColors.detailLabelColorBlue
         } else {
             label.text = item.text
-            label.textColor = UIColor(red: 0/255, green: 0/255, blue: 70/255, alpha: 1)
+            label.textColor = AppColors.labelColorBlue
         }
     }
     
